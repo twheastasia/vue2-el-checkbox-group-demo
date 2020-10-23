@@ -1,22 +1,29 @@
 <template>
   <div id="app">
     <div>
-      <mg-radio-group />
-      <br>
-      <mg-checkbox-group />
+      <mg-checkbox-group v-model="checkList" @change="onCheckListChange" />
     </div>
   </div>
 </template>
 
 <script>
-import MgRadioGroup from './components/MgRadioGroup.vue'
 import MgCheckboxGroup from './components/MgCheckboxGroup.vue'
 
 export default {
   name: 'app',
   components: {
-    MgRadioGroup,
     MgCheckboxGroup
+  },
+  data() {
+    return {
+      checkList: ['复选框 C', '选中且禁用']
+    }
+  },
+  methods: {
+    onCheckListChange(value) {
+      console.log(value)
+      console.log(this.checkList)
+    }
   }
 }
 </script>
